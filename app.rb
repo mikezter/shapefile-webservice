@@ -1,12 +1,7 @@
 # encoding: UTF-8
+Bundler.require
+require './lib'
 
-require 'coffee-script'
-require 'rgeo'
-require 'rgeo-shapefile'
-require 'json'
-
-require 'sinatra'
-require './lib.rb'
 
 also_reload './lib.rb'
 set :haml, :format => :html5

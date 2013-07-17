@@ -1,8 +1,4 @@
 # encoding: UTF-8
-require 'rgeo'
-require 'rgeo-shapefile'
-require 'pry'
-
 module LatLon
   class Service
     def initialize shp_file
