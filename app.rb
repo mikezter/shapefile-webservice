@@ -8,6 +8,7 @@ require 'json'
 require 'sinatra'
 require './lib.rb'
 
+also_reload './lib.rb'
 set :haml, :format => :html5
 SHAPE_FILE_DIR = './data/shapefiles/'
 SHAPE_FILE = SHAPE_FILE_DIR + 'PLZ_2_Leitregion_2013_region.shp'
