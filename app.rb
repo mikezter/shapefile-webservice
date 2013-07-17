@@ -1,4 +1,5 @@
 # encoding: UTF-8
+require 'sinatra'
 Bundler.require
 require './lib'
 
@@ -6,7 +7,7 @@ require './lib'
 also_reload './lib.rb'
 set :haml, format: :html5
 
-SHAPE_FILE_DIR = "#{File.dirname(File.expand_path(__FILE__))}/data/shapefiles/"
+SHAPE_FILE_DIR = "#{File.dirname(File.expand_path(__FILE__))}/data/shapefiles"
 $lat_lon_service = nil
 $lat_lon_services = {}
 
@@ -30,7 +31,7 @@ end
 
 post '/select' do
   name = params[:shapefile]
-  file = "#{SHAPE_FILE_DIR}#{name}.shp"
+  file = "#{SHAPE_FILE_DIR}/#{name}.shp"
   $lat_lon_service = $lat_lon_services[name] ||= LatLon::Service.new(file)
   redirect '/'
 end
