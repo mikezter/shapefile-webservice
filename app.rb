@@ -9,19 +9,18 @@ require 'sinatra'
 require './lib.rb'
 
 set :haml, :format => :html5
-SHAPE_FILE_DIR = 'data/shapefiles/'
-SHAPE_FILE = 'data/shapefiles/post_pl.shp'
-LATLON_SERVICE = LatLon::Service.new(SHAPE_FILE)
+SHAPE_FILE_DIR = './data/shapefiles/'
+SHAPE_FILE = SHAPE_FILE_DIR + 'PLZ_2_Leitregion_2013_region.shp'
+#LATLON_SERVICE = LatLon::Service.new(SHAPE_FILE)
 
 get '/' do
+  @shape_files = Dir["#{SHAPE_FILE_DIR}/*.shp"].collect{ |f| File.basename(f, '.shp') }
   haml :index
 end
 
 get '/app.js' do
   coffee :app
 end
-
-
 
 get '/lonlat2info/:lat/:lon' do
   begin

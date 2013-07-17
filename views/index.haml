@@ -9,5 +9,8 @@
     }
 
 %body
+  %select{name: 'shapefile'}
+    -@shape_files.each do |file|
+      %option{value: file}= File.basename
   #map
   %script{:type => "text/javascript", :src  => "my_click.js"}
