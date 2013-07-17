@@ -2,10 +2,14 @@
 %head
   %title Zipcode Vector Map
 
-  %script{src: "jquery-1.9.1.js"}
-  %script{src: 'jvectormap/jquery-jvectormap-1.2.2.min.js'}
+  %script{src: "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"}
 
-  %link{rel: 'stylesheet', src: 'jquery-jvectormap-1.2.2.css'}
+  %script{src: "jvectormap/jquery-jvectormap-1.2.2.min.js"}
+  %script{src: "jvectormap/jquery-jvectormap-world-mill-en.js"}
+  %script{src: "jvectormap/jquery-jvectormap-de-mill-en.js"}
+  %script{src: "vectormap.js"}
+
+  %link{rel: 'stylesheet', href: 'jvectormap/jquery-jvectormap-1.2.2.css'}
 
   :css
     #map {
@@ -13,22 +17,6 @@
       height: 900px;
     }
 
-  :javascript
-    $(function(){
-      $('#map').vectorMap({
-        map: 'world_mill_en',
-        series: {
-          regions: [{
-            values: gdpData,
-            scale: ['#C8EEFF', '#0071A4'],
-            normalizeFunction: 'polynomial'
-          }]
-        },
-        onLabelShow: function(e, el, code){
-          el.html(el.html()+' (GDP - '+gdpData[code]+')');
-        }
-      });
-    });
 
 %body
   %h1 Vector Map!

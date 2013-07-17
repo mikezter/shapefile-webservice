@@ -20,6 +20,10 @@ get '/' do
   haml :index
 end
 
+get '/vectormap.js' do
+  coffee :vectormap
+end
+
 get '/vectormap' do
   haml :vectormap
 end
