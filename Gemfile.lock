@@ -11,6 +11,11 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     fastercsv (1.5.5)
+    ffi (1.9.0)
+    ffi-geos (0.1.2)
+      ffi (>= 1.0.0)
+    haml (4.0.3)
+      tilt
     method_source (0.8.1)
     multi_json (1.6.1)
     pry (0.9.12)
@@ -36,6 +41,8 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-script
+  ffi-geos
+  haml
   pry
   rgeo
   rgeo-shapefile
