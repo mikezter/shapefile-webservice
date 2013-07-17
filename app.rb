@@ -29,6 +29,14 @@ get '/vectormap' do
   haml :vectormap
 end
 
+get '/kartographer' do
+  haml :kartographer
+end
+
+get '/kartographer.js' do
+  coffee :kartographer
+end
+
 post '/select' do
   name = params[:shapefile]
   file = "#{SHAPE_FILE_DIR}/#{name}.shp"
