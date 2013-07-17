@@ -9,8 +9,10 @@ module LatLon
       puts "setting up whole new data structure"
       @factory = ::RGeo::Cartesian.preferred_factory()
       @records = []
-      RGeo::Shapefile::Reader.open(shp_file) do |file|
+      RGeo::Shapefile::Reader.open(shp_file, assume_inner_follows_outer: true) do |file|
+        puts "Records: #{file.num_records}"
         file.each do |record|
+          print '.'; $stdout.flush
           @records << record
         end
       end
