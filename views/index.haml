@@ -9,8 +9,11 @@
     }
 
 %body
-  %select{name: 'shapefile'}
-    -@shape_files.each do |file|
-      %option{value: file}= File.basename
+  %form{action: 'select', method: 'POST'}
+    %select{id: 'shapefile-select', name: 'shapefile'}
+      %option{value: ''} --- bitte waehlen ---
+      -@shape_files.each do |file|
+        %option{value: file, selected: file == @current}= file
   #map
   %script{:type => "text/javascript", :src  => "my_click.js"}
+  %script{:type => "text/javascript", :src  => "app.js"}

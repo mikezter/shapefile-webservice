@@ -1,12 +1,15 @@
 # encoding: UTF-8
 module LatLon
   class Service
+    attr_reader :shapefile
+
     def initialize shp_file
-      puts "setting up whole new data structure"
+      @shapefile = shp_file
+      print "Setting up #{shp_file} with "
       @factory = ::RGeo::Cartesian.preferred_factory()
       @records = []
-      RGeo::Shapefile::Reader.open(shp_file, assume_inner_follows_outer: true) do |file|
-        puts "Records: #{file.num_records}"
+      RGeo::Shapefile::Reader.open(shp_file) do |file|
+        puts "#{file.num_records} records."
         file.each do |record|
           print '.'; $stdout.flush
           @records << record
