@@ -20,6 +20,9 @@ get '/' do
   haml :index
 end
 
+get '/vectormap' do
+  haml :vectormap
+end
 
 post '/select' do
   name = params[:shapefile]
