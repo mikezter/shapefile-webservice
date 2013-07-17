@@ -4,7 +4,7 @@ require './lib'
 
 
 also_reload './lib.rb'
-set :haml, :format => :html5
+set :haml, format: :html5
 
 SHAPE_FILE_DIR = "#{File.dirname(File.expand_path(__FILE__))}/data/shapefiles/"
 $lat_lon_service = nil

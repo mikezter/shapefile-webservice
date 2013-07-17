@@ -1,7 +1,7 @@
 !!!5
 %head
-  %script{:type => "text/javascript", :src  => "jquery-1.9.1.js"}
-  %script{:type => "text/javascript", :src  => "openlayers/OpenLayers.js"}
+  %script{type: "text/javascript", src: "jquery-1.9.1.js"}
+  %script{type: "text/javascript", src: "openlayers/OpenLayers.js"}
   :css
     #map {
       width:600px;
@@ -15,5 +15,5 @@
       -@shape_files.each do |file|
         %option{value: file, selected: file == @current}= file
   #map
-  %script{:type => "text/javascript", :src  => "my_click.js"}
-  %script{:type => "text/javascript", :src  => "app.js"}
+  %script{type: "text/javascript", src: "my_click.js"}
+  %script{type: "text/javascript", src: "app.js"}
