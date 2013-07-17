@@ -20,9 +20,6 @@ get '/' do
   haml :index
 end
 
-get '/app.js' do
-  coffee :app
-end
 
 post '/select' do
   name = params[:shapefile]
