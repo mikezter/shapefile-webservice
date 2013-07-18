@@ -1,25 +1,21 @@
 $ ->
 
-  chromScale = chroma.scale(['lightyellow', 'navy'])
-
-  scale = (val) ->
-    chromScale(parseInt(val) / 100.0)
-
+  chromaScale = chroma.scale(['lightyellow', 'navy'])
 
   map = $K.map '#map'
-  map.loadMap 'svg/plz2-1.svg', ->
-    map.addLayer 'plz2',
+  map.loadMap 'svg/world.svg', ->
+    map.addLayer 'layer_0',
       tooltips: (data) ->
-        data.lr
+        data.id
       styles:
-        fill: (data) ->
-          scale data.lr
+        stroke: 'black'
+        fill: -> chromaScale(Math.random())
 
-    layer = map.getLayer 'plz2'
+    layer = map.getLayer 'layer_0'
 
     layer.on 'click', (data, path, event) ->
       if path.attr('fill') == 'red'
-        path.attr 'fill', scale data.lr
+        path.attr 'fill', chromaScale(Math.random())
       else
         path.attr 'fill', 'red'
 
